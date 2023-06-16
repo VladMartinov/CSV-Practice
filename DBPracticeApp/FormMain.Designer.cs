@@ -55,12 +55,14 @@
             this.add_count_emissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avg_count_emissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonMetrics1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonMetrics2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonMetrics3 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonMetrics2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonMetrics1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonResultTable = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,6 +140,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.553971F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.44603F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(902, 673);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -347,6 +350,8 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.buttonResultTable);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.buttonMetrics3);
             this.groupBox3.Controls.Add(this.label2);
@@ -357,31 +362,31 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(655, 43);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(244, 267);
+            this.groupBox3.Size = new System.Drawing.Size(244, 339);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Метрики";
             // 
-            // buttonMetrics1
+            // label3
             // 
-            this.buttonMetrics1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonMetrics1.ForeColor = System.Drawing.Color.Black;
-            this.buttonMetrics1.Location = new System.Drawing.Point(45, 49);
-            this.buttonMetrics1.Name = "buttonMetrics1";
-            this.buttonMetrics1.Size = new System.Drawing.Size(152, 35);
-            this.buttonMetrics1.TabIndex = 5;
-            this.buttonMetrics1.Text = "Показать";
-            this.buttonMetrics1.UseVisualStyleBackColor = false;
-            this.buttonMetrics1.Click += new System.EventHandler(this.buttonMetrics1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 185);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(229, 22);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Кол-во машин сан. нормы";
             // 
-            // label1
+            // buttonMetrics3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 22);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Количество машин";
+            this.buttonMetrics3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.buttonMetrics3.ForeColor = System.Drawing.Color.Black;
+            this.buttonMetrics3.Location = new System.Drawing.Point(45, 210);
+            this.buttonMetrics3.Name = "buttonMetrics3";
+            this.buttonMetrics3.Size = new System.Drawing.Size(152, 35);
+            this.buttonMetrics3.TabIndex = 9;
+            this.buttonMetrics3.Text = "Показать";
+            this.buttonMetrics3.UseVisualStyleBackColor = false;
+            this.buttonMetrics3.Click += new System.EventHandler(this.buttonMetrics3_Click);
             // 
             // label2
             // 
@@ -404,26 +409,47 @@
             this.buttonMetrics2.UseVisualStyleBackColor = false;
             this.buttonMetrics2.Click += new System.EventHandler(this.buttonMetrics2_Click);
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 22);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Кол-во машин сан. нормы";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(172, 22);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Количество машин";
             // 
-            // buttonMetrics3
+            // buttonMetrics1
             // 
-            this.buttonMetrics3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonMetrics3.ForeColor = System.Drawing.Color.Black;
-            this.buttonMetrics3.Location = new System.Drawing.Point(45, 210);
-            this.buttonMetrics3.Name = "buttonMetrics3";
-            this.buttonMetrics3.Size = new System.Drawing.Size(152, 35);
-            this.buttonMetrics3.TabIndex = 9;
-            this.buttonMetrics3.Text = "Показать";
-            this.buttonMetrics3.UseVisualStyleBackColor = false;
-            this.buttonMetrics3.Click += new System.EventHandler(this.buttonMetrics3_Click);
+            this.buttonMetrics1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.buttonMetrics1.ForeColor = System.Drawing.Color.Black;
+            this.buttonMetrics1.Location = new System.Drawing.Point(45, 49);
+            this.buttonMetrics1.Name = "buttonMetrics1";
+            this.buttonMetrics1.Size = new System.Drawing.Size(152, 35);
+            this.buttonMetrics1.TabIndex = 5;
+            this.buttonMetrics1.Text = "Показать";
+            this.buttonMetrics1.UseVisualStyleBackColor = false;
+            this.buttonMetrics1.Click += new System.EventHandler(this.buttonMetrics1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(9, 260);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(227, 22);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Результирующая таблица";
+            // 
+            // buttonResultTable
+            // 
+            this.buttonResultTable.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.buttonResultTable.ForeColor = System.Drawing.Color.Black;
+            this.buttonResultTable.Location = new System.Drawing.Point(45, 285);
+            this.buttonResultTable.Name = "buttonResultTable";
+            this.buttonResultTable.Size = new System.Drawing.Size(152, 35);
+            this.buttonResultTable.TabIndex = 11;
+            this.buttonResultTable.Text = "Показать";
+            this.buttonResultTable.UseVisualStyleBackColor = false;
+            this.buttonResultTable.Click += new System.EventHandler(this.buttonResultTable_Click);
             // 
             // FormMain
             // 
@@ -486,6 +512,8 @@
         private System.Windows.Forms.Button buttonMetrics2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMetrics1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonResultTable;
     }
 }
 

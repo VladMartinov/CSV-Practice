@@ -11,7 +11,7 @@ namespace DBPracticeApp
         private OpenFileDialog openFileDialog;
 
         private FormLoad formLoad;
-        private Filters filters;
+        private FormResults resultsTable;
         private FileWorkers fileWorkers;
         private Metrics metrics;
         #endregion
@@ -23,8 +23,6 @@ namespace DBPracticeApp
             this.openFileDialog = new OpenFileDialog();
             this.openFileDialog.InitialDirectory = "c:\\";
             this.openFileDialog.Filter = "CSV files(*.csv)|*.csv|All files(*.*)|*.*";
-
-            this.filters = new Filters(this.dataGridViewRegion);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -160,6 +158,8 @@ namespace DBPracticeApp
         private void buttonFilters_Click(object sender, EventArgs e)
         {
             FormSelectFilter selectFilter = new FormSelectFilter();
+            Filters filters = new Filters(this.dataGridViewRegion);
+
             if (selectFilter.ShowDialog(this) != DialogResult.OK)
             {
                 MessageBox.Show("Фильтр не был выбран!", "Уведомление.");
@@ -183,7 +183,7 @@ namespace DBPracticeApp
                 return;
             }
 
-            ShowDataInWindow(data, "Результат запроса");
+            ShowDataInWindow(data, "Результат запроса", true);
         }
 
         private void buttonSortTheFile_Click(object sender, EventArgs e)
@@ -234,6 +234,14 @@ namespace DBPracticeApp
             this.metrics.ShowMetric(3);
         }
 
+        private void buttonResultTable_Click(object sender, EventArgs e)
+        {
+            this.resultsTable = new FormResults();
+            this.resultsTable.LoadDataToForm(this.fileWorkers.DataFile);
+            this.resultsTable.LoadDataToView();
+            this.resultsTable.Show();
+        }
+
         /* Additional functions */
 
         private void LoadDataToView(List<string[]> data)
@@ -259,19 +267,34 @@ namespace DBPracticeApp
             ShowDataInWindow(this.fileWorkers.ModifFilePath, "Модифицированная таблица \"Регион\"");
         }
 
-        private void ShowDataInWindow(List<string[]> data, string title)
+        private void ShowDataInWindow(List<string[]> data, string title, bool buttonsEnable = false)
         {
-            FormShowFile formShowModifFile = new FormShowFile();
+            FormShowFile formShowModifFile = new FormShowFile(this);
             formShowModifFile.LoadDataToTable(data);
             formShowModifFile.SetTitleText(title);
+            if (buttonsEnable)
+                formShowModifFile.EnableTheButtons();
             formShowModifFile.Show();
         }
-        private void ShowDataInWindow(string filPath, string title)
+        private void ShowDataInWindow(string filPath, string title, bool buttonsEnable = false)
         {
             FormShowFile formShowModifFile = new FormShowFile();
             formShowModifFile.LoadDataToTable(filPath);
             formShowModifFile.SetTitleText(title);
+            if (buttonsEnable)
+                formShowModifFile.EnableTheButtons();
             formShowModifFile.Show();
+        }
+        public void CreateFilteredFile(string fileModif, List<string[]> contentFilter)
+        {
+            this.fileWorkers.CreateFilteredFile(fileModif ,this.fileWorkers.HeaderFile, contentFilter);
+        }
+        public void SortModifFile(List<string[]> contentFilter)
+        {
+            this.fileWorkers.DataFile = contentFilter;
+            this.fileWorkers.UpdateTheFile();
+
+            LoadDataToView(this.fileWorkers.DataFile);
         }
     }
 }

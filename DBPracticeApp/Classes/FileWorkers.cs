@@ -50,11 +50,15 @@ namespace DBPracticeApp.Classes
             CreateNewFile(this.modifFilePath, this.headerFile, this.dataFile);
         }
 
-        private string createNewPath(string filePath)
+        private string createNewPath(string filePath, string fileModif = "None")
         {
+            string newPath;
+
             string[] splitedNameFile = Path.GetFileName(filePath).Split('.');
-            string newPath = Path.GetDirectoryName(filePath) + string.Join(".", splitedNameFile, 0, splitedNameFile.Length - 1) + "_copy.csv";
-        
+            
+            newPath = fileModif == "None" ? 
+                Path.GetDirectoryName(filePath) + string.Join(".", splitedNameFile, 0, splitedNameFile.Length - 1) + "_copy.csv" :
+                Path.GetDirectoryName(filePath) + string.Join(".", splitedNameFile, 0, splitedNameFile.Length - 1) + "_" + fileModif + ".csv";
             return newPath;
         }
 
@@ -110,7 +114,8 @@ namespace DBPracticeApp.Classes
         public void AddToFile(string[] data)
         {
             this.dataFile.Add(data);
-            this.UpdateTheFile();
+
+            UpdateTheFile();
         }
 
         public void RemoveAtFile(List<int> indexes)
@@ -124,8 +129,13 @@ namespace DBPracticeApp.Classes
         public void UpdateLineInFile(string[] dataLine, int index)
         {
             this.dataFile[index] = dataLine;
-        
+
             UpdateTheFile();
+        }
+
+        public void CreateFilteredFile(string fileName, List<string[]> header, List<string[]> content)
+        {
+            CreateNewFile(createNewPath(this.ModifFilePath, fileName), header, content);
         }
     }
 }

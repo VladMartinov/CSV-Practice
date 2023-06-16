@@ -7,10 +7,29 @@ namespace DBPracticeApp
 {
     public partial class FormShowFile : Form
     {
+        #region -Values-
+        private FormMain formMain;
+        private bool isMainFormCreate = false;
+        private List<string[]> contentData;
+        #endregion
+
         public FormShowFile()
         {
             InitializeComponent();
 
+            this.buttonSortModifFile.Enabled = false;
+            this.buttonCreateNewFile.Enabled = false;
+        }
+
+        public FormShowFile(FormMain formMain)
+        {
+            InitializeComponent();
+
+            this.buttonSortModifFile.Enabled = false;
+            this.buttonCreateNewFile.Enabled = false;
+        
+            this.formMain = formMain;
+            this.isMainFormCreate = true;
         }
 
         public void LoadDataToTable(string filePath)
@@ -34,6 +53,8 @@ namespace DBPracticeApp
         {
             this.dataGridViewRegion.Rows.Clear();
 
+            this.contentData = data;
+
             foreach (string[] field in data)
                 dataGridViewRegion.Rows.Add(field[0], field[1], field[2], field[3], field[4], field[5]);
         }
@@ -46,6 +67,42 @@ namespace DBPracticeApp
         public void SetTitleForm(string newTitle)
         {
             this.Text = newTitle;
+        }
+
+        /* Work with file */
+
+        private void buttonSortModifFile_Click(object sender, System.EventArgs e)
+        {
+            if (!isMainFormCreate)
+            {
+                MessageBox.Show("Данные не были переданы!", "Ошибка!");
+                return;
+            }
+
+            this.formMain.SortModifFile(this.contentData);
+            MessageBox.Show("Рабочий файл успешно отфильтрован!", "Уведомление.");
+            
+            return;
+        }
+
+        private void buttonCreateNewFile_Click(object sender, System.EventArgs e)
+        {
+            if (!isMainFormCreate)
+            {
+                MessageBox.Show("Данные не были переданы!", "Ошибка!");
+                return;
+            }
+
+            this.formMain.CreateFilteredFile("filtered", this.contentData);
+            MessageBox.Show("Новый отфильтрованный файл успешно создан!", "Уведомление.");
+         
+            return;
+        }
+
+        public void EnableTheButtons()
+        {
+            this.buttonSortModifFile.Enabled = true;
+            this.buttonCreateNewFile.Enabled = true;
         }
     }
 }
