@@ -55,14 +55,14 @@
             this.add_count_emissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avg_count_emissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonResultTable = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonMetrics3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonMetrics2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonMetrics1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonResultTable = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -127,8 +127,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.28381F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.71619F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.50111F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.49889F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelRegion, 0, 0);
@@ -158,7 +158,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 475);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(646, 195);
+            this.groupBox1.Size = new System.Drawing.Size(666, 195);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Действия с таблицей \"Регион\"";
@@ -233,9 +233,9 @@
             this.groupBox2.Controls.Add(this.buttonShowInputFile);
             this.groupBox2.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(655, 475);
+            this.groupBox2.Location = new System.Drawing.Point(675, 475);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 195);
+            this.groupBox2.Size = new System.Drawing.Size(224, 195);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Показ файлов";
@@ -275,7 +275,7 @@
             this.labelRegion.ForeColor = System.Drawing.Color.White;
             this.labelRegion.Location = new System.Drawing.Point(3, 0);
             this.labelRegion.Name = "labelRegion";
-            this.labelRegion.Size = new System.Drawing.Size(646, 40);
+            this.labelRegion.Size = new System.Drawing.Size(666, 40);
             this.labelRegion.TabIndex = 2;
             this.labelRegion.Text = "Таблица \"Регион\"";
             this.labelRegion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -313,7 +313,7 @@
             this.dataGridViewRegion.GridColor = System.Drawing.Color.DarkSlateBlue;
             this.dataGridViewRegion.Location = new System.Drawing.Point(3, 43);
             this.dataGridViewRegion.Name = "dataGridViewRegion";
-            this.dataGridViewRegion.Size = new System.Drawing.Size(646, 426);
+            this.dataGridViewRegion.Size = new System.Drawing.Size(666, 426);
             this.dataGridViewRegion.TabIndex = 3;
             // 
             // name_region
@@ -360,19 +360,42 @@
             this.groupBox3.Controls.Add(this.buttonMetrics1);
             this.groupBox3.Font = new System.Drawing.Font("Montserrat Medium", 12F);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(655, 43);
+            this.groupBox3.Location = new System.Drawing.Point(675, 43);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(244, 339);
+            this.groupBox3.Size = new System.Drawing.Size(224, 339);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Метрики";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Montserrat Medium", 10F);
+            this.label4.Location = new System.Drawing.Point(15, 262);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(202, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Результирующая таблица";
+            // 
+            // buttonResultTable
+            // 
+            this.buttonResultTable.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.buttonResultTable.ForeColor = System.Drawing.Color.Black;
+            this.buttonResultTable.Location = new System.Drawing.Point(45, 285);
+            this.buttonResultTable.Name = "buttonResultTable";
+            this.buttonResultTable.Size = new System.Drawing.Size(152, 35);
+            this.buttonResultTable.TabIndex = 11;
+            this.buttonResultTable.Text = "Показать";
+            this.buttonResultTable.UseVisualStyleBackColor = false;
+            this.buttonResultTable.Click += new System.EventHandler(this.buttonResultTable_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 185);
+            this.label3.Font = new System.Drawing.Font("Montserrat Medium", 10F);
+            this.label3.Location = new System.Drawing.Point(13, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 22);
+            this.label3.Size = new System.Drawing.Size(204, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Кол-во машин сан. нормы";
             // 
@@ -429,27 +452,6 @@
             this.buttonMetrics1.Text = "Показать";
             this.buttonMetrics1.UseVisualStyleBackColor = false;
             this.buttonMetrics1.Click += new System.EventHandler(this.buttonMetrics1_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 260);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(227, 22);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Результирующая таблица";
-            // 
-            // buttonResultTable
-            // 
-            this.buttonResultTable.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.buttonResultTable.ForeColor = System.Drawing.Color.Black;
-            this.buttonResultTable.Location = new System.Drawing.Point(45, 285);
-            this.buttonResultTable.Name = "buttonResultTable";
-            this.buttonResultTable.Size = new System.Drawing.Size(152, 35);
-            this.buttonResultTable.TabIndex = 11;
-            this.buttonResultTable.Text = "Показать";
-            this.buttonResultTable.UseVisualStyleBackColor = false;
-            this.buttonResultTable.Click += new System.EventHandler(this.buttonResultTable_Click);
             // 
             // FormMain
             // 
